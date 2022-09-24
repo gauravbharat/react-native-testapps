@@ -9,6 +9,7 @@ import {
   Text,
   Button,
 } from 'native-base';
+import {useColorScheme} from 'react-native';
 
 let itemArray: {value: boolean | string; index: number}[] = new Array(9)
   .fill('')
@@ -18,6 +19,8 @@ let itemArray: {value: boolean | string; index: number}[] = new Array(9)
   }));
 
 const TicTacToe = (props: any) => {
+  const isDarkMode = useColorScheme() === 'dark';
+
   const [tttState, setTTTState] = React.useState({
     isCross: false,
     winMessage: '',
@@ -117,7 +120,7 @@ const TicTacToe = (props: any) => {
       flex={1}
       alignItems="center"
       justifyContent="center"
-      bgColor={props.isDarkMode ? 'coolGray.800' : 'warmGray.50'}
+      bgColor={isDarkMode ? 'coolGray.800' : 'warmGray.50'}
       safeArea>
       <FlatList
         marginTop="200px"
